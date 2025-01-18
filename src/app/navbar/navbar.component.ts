@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
-
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +14,9 @@ import { RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
   
-  
+  auth=inject(AuthenticationService)
   onClick(){
-    
+    this.auth.logout();
 
   }
 
