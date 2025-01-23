@@ -20,21 +20,29 @@ export class RequestManager {
  
   //Send room searching criteria and get results
   sendSearchData(searchData: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    //const token = localStorage.getItem('token');
+    //const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    const url = `${this.apiUrl}/v2/search`;
-    return this.http.post<any>(url, searchData,{headers});
+    const url = `${this.apiUrl}/v1/search`;
+    return this.http.post<any>(url, searchData);
   }
 
 //Send room searching criteria and get results by low price basis
   sendSearchDataPriceBased(searchData: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    //const token = localStorage.getItem('token');
+    //const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    const url = `${this.apiUrl}/v2/search/priceBased`;
-    return this.http.post<any>(url, searchData,{headers});
+    const url = `${this.apiUrl}/v1/search/priceBased`;
+    return this.http.post<any>(url, searchData);
   }
+
+  sendReservData(formdata:any): Observable<any> {
+    
+
+    const url = `${this.apiUrl}/v1/reservations/place`;
+    return this.http.post<any>(url, formdata);
+  }
+
 
   
 
