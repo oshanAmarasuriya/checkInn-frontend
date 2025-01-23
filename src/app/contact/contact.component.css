@@ -1,0 +1,79 @@
+/* CSS styles for the hotel contact page */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  
+  .contact-header {
+    background-image: url('/assets/hotel2.jpg');
+    height: 50vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-header p {
+    font-size: 1.2rem;
+  }
+  
+  .contact-section {
+    padding: 3rem 2rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .contact-form button {
+    background: #0056b3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .contact-form button:hover {
+    background: #004094;
+  }
+  
+  footer {
+    background: black;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
