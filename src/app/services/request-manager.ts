@@ -37,10 +37,13 @@ export class RequestManager {
   }
 
   sendReservData(formdata:any): Observable<any> {
-    
-
     const url = `${this.apiUrl}/v1/reservations/place`;
     return this.http.post<any>(url, formdata);
+  }
+
+  sendContactData(cdata:any): Observable<any> {
+    const url = `${this.apiUrl}/v1/contacts/add`;
+    return this.http.post<any>(url, cdata);
   }
 
 

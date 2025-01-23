@@ -14,12 +14,13 @@
 
   <section id="contact" class="contact-section">
     <h2 class="section-title">Get in Touch</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <input formControlName="name" type="text" placeholder="Your Name" required>
+      <input formControlName="email" type="email" placeholder="Your Email" required>
+      <textarea formControlName="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
+    
     <h2 class="section-title">Contact Information</h2>
     <p>Email: info.hotelparadise.com</p>
     <p>Phone: +1 (123) 456-7890</p>
