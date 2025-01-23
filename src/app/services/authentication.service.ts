@@ -13,7 +13,7 @@ export class AuthenticationService {
   private tokenSubject = new BehaviorSubject<string | null>(null);
 
   constructor(private http: HttpClient) { 
-    this.tokenSubject.next(localStorage.getItem('token'));
+    //this.tokenSubject.next(localStorage.getItem('token'));
   }
 
   get token(): Observable<string | null> {
@@ -33,14 +33,14 @@ export class AuthenticationService {
     .pipe(
       tap(response => {
         const { token } = response;
-        localStorage.setItem('token', token);
+        //localStorage.setItem('token', token);
         this.tokenSubject.next(token);
       })
     );
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    //localStorage.removeItem('token');
     this.tokenSubject.next(null);
     
   }
