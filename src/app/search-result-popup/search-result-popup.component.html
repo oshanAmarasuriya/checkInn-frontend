@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel List</title>
+</head>
+
+<body>
+  <h2>Search results</h2>
+  <div class="container">
+    <div class="hotel-list">
+
+
+      <ul>
+         <!-- If the related component is used to display hotel room search results on low price basis -->
+        <div
+          *ngIf="data.dataArray && data.dataArray.length > 0 && data.dataArray[0]?.hasOwnProperty('advancedTypeDtoList')">
+
+          <li *ngFor="let hotel of data.dataArray" class="hotel-item">
+            <h3>{{ hotel.hotelName }} - {{ hotel.location }}</h3>
+
+            <p>Price: LKR {{ hotel.price | number: '1.2-2' }}</p>
+
+            <ul>
+              <li *ngFor="let roomType of hotel.advancedTypeDtoList" class="hotel-item">
+                <p>Room Type: {{ roomType.roomType }}</p>
+                <p>Possible Max Adults: {{ roomType.possibleMaxAdults }}</p>
+                <p>Number of Allocated Rooms: {{ roomType.numOfAllocatedRooms }}</p>
+              </li>
+            </ul>
+
+            <p *ngIf="hotel.okay">All rquired rooms are available</p>
+            <p *ngIf="!hotel.okay">Not enough rooms for the requirement!</p>
+
+            <hr />
+          </li>
+
+        </div>
+      </ul>
+
+
+
+      <ul>
+        <!-- If the related component is used to display hotel room search results room type basis -->
+        <div
+          *ngIf="data.dataArray && data.dataArray.length > 0 && data.dataArray[0]?.hasOwnProperty('price')  && !(data.dataArray[0]?.hasOwnProperty('advancedTypeDtoList'))">
+          <li *ngFor="let item of data.dataArray" class="hotel-item">
+            <h3><strong> {{item.hotelName}} </strong></h3>
+            <p><strong> Price: </strong> LKR. {{item.price | number: '1.2-2'}}</p>
+            <p><strong> Room Type: </strong> {{item.roomType}}</p>
+            <!-- <p><strong> Availability: </strong> {{item.isAvailable}}</p> -->
+            <p *ngIf="item.isAvailable==='available'">Available (All requested rooms are available)</p>
+            <p *ngIf="!(item.isAvailable==='available')">Unavailable (Not enough rooms!)</p>
+          </li>
+        </div>
+      </ul>
+
+
+
+      <!-- If used for displaying contract search results -->
+      <div *ngIf="data.dataArray && data.dataArray.length > 0 && data.dataArray[0]?.hasOwnProperty('contractId')">
+        <ul class="ul2">
+          <li *ngFor="let item of data.dataArray">
+            <div class="col">
+
+              <strong>
+                <h3>{{item.hotelName}} - {{item.location}}</h3>
+              </strong>
+
+              <strong> Contract ID: </strong> {{item.contractId}}
+              <br>
+              <strong> Start Date: </strong> {{item.startDate}}
+              <br>
+              <strong> Ending Date: </strong> {{item.endDate}}
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Type:</th>
+                    <th>Max Adults</th>
+                    <th># of rooms</th>
+                    <th>Price per adult LKR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let subItem of item.hotelRooms">
+                    <td>{{subItem.hotelRoomSetId}}</td>
+                    <td>{{subItem.roomType}}</td>
+                    <td>{{subItem.maxAdults}}</td>
+                    <td>{{subItem.numOfRooms}}</td>
+                    <td>{{subItem.pricePerAdult | number: '1.2-2'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+            </div>
+          </li>
+        </ul>
+        <Button class="btn_del" (click)="onClick()">Delete</Button>
+      </div>
+
+
+      <!-- If there are no search results to display -->
+      <div *ngIf=" data.dataArray.length == 0">
+        <p style="text-align: center">Nothing Found ! Please check again your inputs</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
