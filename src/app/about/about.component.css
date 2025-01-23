@@ -1,0 +1,61 @@
+/* CSS styles for the hotel about page */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .about-header {
+    background: burlywood;
+    height: 50vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .about-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-header p {
+    font-size: 1.2rem;
+  }
+  
+  .about-section {
+    padding: 3rem 2rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .team {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .team-card {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  footer {
+    background: black;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
