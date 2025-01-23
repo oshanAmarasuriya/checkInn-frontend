@@ -1,5 +1,8 @@
 # CheckInnFrontend
 
+This is the front end of the CheckInn-Hotel Management system, for a hotel network(Hotel Paradise).
+The system allows users to check pricing, book hotel rooms, contact the front desk and more. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
 ## Development server
