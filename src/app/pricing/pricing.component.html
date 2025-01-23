@@ -1,1 +1,45 @@
-<p>pricing works!</p>
+<!-- search.component.html -->
+
+<div class="search-container">
+
+    <div class="container-wrapper">
+      <h1>Let's calculate prices for you</h1>
+      <div class="toggle">
+        <label>
+          -----I need lowest price:
+          <input type="checkbox" [(ngModel)]="toggleState" class="toggle-input" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <!-- Check-in Date Input -->
+      <label for="checkInDate">Starting Date:</label>
+      <input type="date" id="checkInDate" formControlName="checkInDate" required>
+  
+      <!-- Number of Nights Input -->
+      <label for="numOfNights">How Many Nights?</label>
+      <input type="number" id="numOfNights" formControlName="numOfNights" min="1" value="1" required>
+  
+      <div formArrayName="sets">
+        <div *ngFor="let set of sets.controls; let i = index" [formGroupName]="i">
+          <label>
+            How many Adults?
+            <input type="number" formControlName="adults" />
+          </label>
+          <label>
+            Number of Rooms:
+            <input type="number" formControlName="rooms" />
+          </label>
+          <button type="button" class="btn_remove" (click)="removeSet(i)" *ngIf="sets.length > 1">Remove</button>
+        </div><br>
+      </div>
+      <button type="button" class="btn_add" (click)="addSet()">Add New Set</button>
+    </form><br>
+    <!-- Submit Button -->
+    <button type="submit" (click)="onSubmit()">Search</button>
+    &nbsp; &nbsp;
+  
+    <button class="btn_clear" (click)="onClear()">Clear</button>
+  </div>
+  
