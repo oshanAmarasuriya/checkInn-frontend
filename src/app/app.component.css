@@ -1,0 +1,6 @@
+/* app.component.css */
+:host {
+    display: block;
+    padding-top: 60px; /* Adjust this value to match your navbar's height */
+  }
+  
